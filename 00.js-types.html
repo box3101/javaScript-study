@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>자바스크립트 타입 기초</title>
+  </head>
+  <body>
+    <script>
+      // 1. 기본형(Primitive Types) 예제
+
+      let num = 100; // Number 타입
+      let bool = true; // Boolean 타입
+      let char = "가"; // String 타입(한 글자)
+      let empty; // undefined 타입
+      let nullVar = null; // null 타입
+
+      console.log("\n----- 기본형(원시) 타입 -----");
+      console.log("숫자형(Number):", num);
+      console.log("논리형(Boolean):", bool);
+      console.log("문자형(String-한글자):", char);
+      console.log("정의되지 않음(undefined):", empty);
+      console.log("널(null):", nullVar);
+
+      // 2. 참조형(Reference Types) 예제
+
+      let str = "안녕하세요"; // String 타입(여러 글자)
+      let obj = { 이름: "김철수", 나이: 20 }; // Object 타입
+      let arr = [1, 2, 3, 4, 5]; // Array 타입
+
+      console.log("\n----- 참조형 타입 -----");
+      console.log("문자열(String-여러글자):", str);
+      console.log("객체(Object):", obj);
+      console.log("배열(Array):", arr);
+
+      // 3. 메모리 저장 방식 차이 설명
+      console.log("\n----- 메모리 저장 방식 비교 -----");
+
+      // 기본형 복사 (값 자체를 복사)
+      let 숫자1 = 10;
+      let 숫자2 = 숫자1;
+      숫자1 = 20;
+
+      console.log("기본형 복사 결과:");
+      console.log("숫자1:", 숫자1); // 20
+      console.log("숫자2:", 숫자2); // 10 (원본값 유지)
+
+      // 참조형 복사 (주소값 복사)
+      let 객체1 = { 값: 10 };
+      let 객체2 = 객체1;
+      객체1.값 = 20;
+
+      console.log("\n참조형 복사 결과:");
+      console.log("객체1:", 객체1); // { 값: 20 }
+      console.log("객체2:", 객체2); // { 값: 20 } (함께 변경됨)
+    </script>
+  </body>
+</html>
