@@ -2,21 +2,6 @@
 <html>
   <head>
     <title>자바스크립트 문자열(String) 기초</title>
-    <style>
-      .text-container {
-        margin: 20px;
-        padding: 10px;
-        border: 1px solid #ccc;
-      }
-      .control-panel {
-        margin: 20px;
-      }
-      .result {
-        font-size: 18px;
-        color: #333;
-        margin: 10px 0;
-      }
-    </style>
   </head>
   <body>
     <h1>자바스크립트 문자열 기본 사용법</h1>
@@ -69,56 +54,5 @@
     </script>
 
     <p>콘솔을 열어서 결과를 확인해보세요 (F12)</p>
-
-    <h2>문자열 UI 조작 예제</h2>
-    <div class="text-container">
-      <div class="control-panel">
-        <input
-          type="text"
-          id="inputText"
-          value="안녕하세요 반갑습니다"
-          style="width: 300px"
-        />
-        <button onclick="toUpperCase()">대문자변환</button>
-        <button onclick="toLowerCase()">소문자변환</button>
-        <button onclick="trimText()">공백제거</button>
-        <input type="text" id="searchText" placeholder="찾을 텍스트" />
-        <input type="text" id="replaceText" placeholder="바꿀 텍스트" />
-        <button onclick="replaceText()">텍스트 교체</button>
-      </div>
-      <div class="result" id="resultText"></div>
-    </div>
-
-    <script>
-      // UI 조작을 위한 함수들
-      function updateResult(text) {
-        document.getElementById("resultText").textContent = text;
-      }
-
-      function toUpperCase() {
-        const text = document.getElementById("inputText").value;
-        updateResult(text.toUpperCase());
-      }
-
-      function toLowerCase() {
-        const text = document.getElementById("inputText").value;
-        updateResult(text.toLowerCase());
-      }
-
-      function trimText() {
-        const text = document.getElementById("inputText").value;
-        updateResult(text.trim());
-      }
-
-      function replaceText() {
-        const text = document.getElementById("inputText").value;
-        const searchText = document.getElementById("searchText").value;
-        const replaceText = document.getElementById("replaceText").value;
-        updateResult(text.replace(searchText, replaceText));
-      }
-
-      // 초기 텍스트 표시
-      updateResult(document.getElementById("inputText").value);
-    </script>
   </body>
 </html>
