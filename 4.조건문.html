@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 1. if 문 - 점수에 따라 등급을 매기는 가장 기본적인 조건문
+      // 조건을 순차적으로 검사하여 해당하는 코드 블록을 실행합니다
+      let score = 85;
+
+      if (score >= 90) {
+        console.log("A등급");
+      } else if (score >= 80) {
+        console.log("B등급");
+      } else if (score >= 70) {
+        console.log("C등급");
+      } else {
+        console.log("D등급");
+      }
+
+      // 2. switch 문 - 하나의 값을 여러 경우(case)와 비교할 때 사용하는 조건문
+      // break를 만나면 switch문을 빠져나갑니다
+      let day = "월요일";
+
+      // switch문은 하나의 값을 여러 경우와 비교할 때 사용합니다
+      // day 변수의 값과 각 case의 값을 비교합니다
+      switch (day) {
+        case "월요일": // day가 "월요일"일 때
+          console.log("회의가 있습니다");
+          break; // break를 만나면 switch문을 종료합니다
+
+        case "화요일":
+        case "수요일": // 여러 case를 연달아 쓰면 동일한 코드를 실행합니다
+          console.log("프로젝트 작업일입니다");
+          break;
+
+        case "목요일": // day가 "목요일"일 때
+          console.log("발표일입니다");
+          break;
+
+        default: // 위의 모든 case에 해당하지 않을 때 실행됩니다
+          console.log("자유 시간입니다"); // 금,토,일요일일 때 실행
+      }
+
+      // 3. 삼항 연산자 - 조건 ? 참일때값 : 거짓일때값 형식의 간단한 조건문
+      // if-else를 한 줄로 줄여쓸 수 있습니다
+      let age = 20;
+      let canDrink = age >= 19 ? "음주 가능" : "음주 불가";
+
+      // 4. 중첩 조건문 - 조건문 안에 다른 조건문을 넣어 더 세밀한 조건 처리
+      // 로그인 상태와 관리자 여부를 확인하는 예시
+      let isLoggedIn = true;
+      let isAdmin = true;
+
+      if (isLoggedIn) {
+        if (isAdmin) {
+          console.log("관리자 페이지에 접속합니다");
+        } else {
+          console.log("일반 사용자 페이지에 접속합니다");
+        }
+      } else {
+        console.log("로그인이 필요합니다");
+      }
+
+      // 5. 논리 연산자를 활용한 조건문 - OR(||) 연산자로 기본값 설정
+      // 첫 번째 값이 falsy일 때 두 번째 값을 반환하고, 두 번째 값도 falsy라면 두 번째 값을 반환합니다
+      let userName = ""; // falsy 값
+      let defaultName = userName || 0; // userName이 falsy이므로 0을 반환
+      console.log(defaultName); // 0 출력
+
+      // 두 값 모두 falsy인 경우 예시
+      let value1 = ""; // falsy
+      let value2 = 0; // falsy
+      let result = value1 || value2; // 0이 출력됨
+      console.log(result);
+
+      // 6. 조건부 실행 - AND(&&) 연산자로 조건이 참일 때만 실행
+      // 조건이 참일 때만 오른쪽 코드가 실행됩니다
+      isAdmin && console.log("관리자 권한이 있습니다");
+    </script>
+  </body>
+</html>

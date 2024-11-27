@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>스크롤 네비게이션</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        padding: 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-items {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        list-style: none;
+      }
+
+      .nav-items li a {
+        text-decoration: none;
+        color: #333;
+        font-size: 18px;
+        cursor: pointer;
+      }
+
+      .nav-items li a.active {
+        color: #007bff;
+        font-weight: bold;
+      }
+
+      section {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 48px;
+        font-weight: bold;
+      }
+
+      #section1 {
+        background: #ffd6d6;
+      }
+      #section2 {
+        background: #d6ffd6;
+      }
+      #section3 {
+        background: #d6d6ff;
+      }
+      #section4 {
+        background: #fff6d6;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <ul class="nav-items">
+        <li><a href="#section1" class="active">섹션 1</a></li>
+        <li><a href="#section2">섹션 2</a></li>
+        <li><a href="#section3">섹션 3</a></li>
+        <li><a href="#section4">섹션 4</a></li>
+      </ul>
+    </nav>
+
+    <section id="section1">섹션 1</section>
+    <section id="section2">섹션 2</section>
+    <section id="section3">섹션 3</section>
+    <section id="section4">섹션 4</section>
+
+    <script>
+      const sections = document.querySelectorAll("section");
+      const navItems = document.querySelectorAll(".nav-items a");
+
+      // 스크롤 이벤트 처리
+      $(window).scroll(function () {
+        let current = "";
+
+        $("section").each(function () {
+          const sectionTop = $(this).offset().top;
+          const sectionHeight = $(this).height();
+
+          if ($(window).scrollTop() >= sectionTop - sectionHeight / 3) {
+            current = $(this).attr("id");
+          }
+        });
+
+        $(".nav-items a").removeClass("active");
+        $(".nav-items a[href='#" + current + "']").addClass("active");
+      });
+
+      // 네비게이션 클릭 이벤트 처리
+      $(".nav-items a").click(function (e) {
+        e.preventDefault();
+        const targetId = $(this).attr("href");
+
+        $("html, body").animate(
+          {
+            scrollTop: $(targetId).offset().top,
+          },
+          500
+        );
+      });
+    </script>
+  </body>
+</html>
