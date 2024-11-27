@@ -91,7 +91,7 @@
       let 객체1 = { 값: 10 };
       let 객체2 = 객체1;
       let 객체3 = 객체1;
-      객체1.값 = 20;
+      객체2.값 = 20;
 
       console.log("\n참조형 복사 결과:");
       console.log("객체1:", 객체1); // { 값: 20 }
@@ -99,12 +99,11 @@
 
       let a = 1;
       let 과일 = ["사과", "바나나", "딸기"];
-      let 과일copy = [...과일];
+      let 과일copy = 과일;
 
       과일copy[0] = "바나나";
 
       console.log(과일);
-      console.log(과일copy);
     </script>
   </body>
 </html>
